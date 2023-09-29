@@ -36,7 +36,23 @@ func pallindrome() {
 		fmt.Println("The input is not a palindrome.")
 	}
 }
+func reverseString(input string) string {
+	runes := []rune(input)
+	length := len(runes)
 
+	for i := 0; i < length/2; i++ {
+		runes[i], runes[length-i-1] = runes[length-i-1], runes[i]
+	}
+
+	return string(runes)
+}
+
+func reverse() {
+	original := "MAYANK"
+	reversed := reverseString(original)
+	fmt.Println("Original:", original)
+	fmt.Println("Reversed:", reversed)
+}
 
 func main() {
 	// Initialize a variable to store the highest number
@@ -52,7 +68,7 @@ func main() {
 
 	// Print the highest number
 	fmt.Println("The highest number from 1 to 20 is:", highest)
-
+        fmt.Println(reverse())
 	addLetters()
 }
 
