@@ -55,3 +55,24 @@ func main() {
 
 	addLetters()
 }
+
+
+// fibonacci returns a function that generates Fibonacci numbers.
+func fibonacci() func() int {
+	a, b := 0, 1
+	return func() int {
+		a, b = b, a+b
+		return a
+	}
+}
+
+func main() {
+	// Create a Fibonacci number generator function.
+	fib := fibonacci()
+
+	// Generate and print the first 10 Fibonacci numbers.
+	for i := 0; i < 10; i++ {
+		fmt.Println(fib())
+	}
+}
+
